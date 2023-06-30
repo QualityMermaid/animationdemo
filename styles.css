@@ -1,0 +1,138 @@
+*{
+    font-family: sans-serif;
+}
+
+body{
+    padding: 2rem;
+    padding-bottom: 2rem;
+}
+
+img{
+    height: 300px;
+    width: 40%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* transdorm distorts elements from their original size / shape / position. transform is the property name however it can have different values such as rotate, scale, skew and traslate */
+
+img:first-child:hover{
+    /* transform: scale(1.5); */
+    /* transform: rotate(30deg); */
+    /* transform: translateX(160px); */
+    /* transform: skew(30deg); */
+    transform: rotate(30deg) scale(1.5) translateX(150px) skewX(30deg);
+    transition: 2s;
+}
+
+img:last-child:hover{
+    /* transform: scale(.5); */
+    /* transform: rotate(-330deg); */
+    /* -330deg will spin other way */
+    /* transform: translate(-160px, 400px); */
+    /* transform: skew(30deg, 30deg); */
+    transform: rotate(-330deg) scale(.5) translateX(150px) skewX(330deg);
+
+    transition: 2000ms;
+}
+
+/* transition alter the apperance of an element whent he state changes */
+/* transition-time */
+
+.rounding{
+    margin-top: 2rem;
+    background-color: blue;
+    width: 200px;
+    height: 200px;
+    border-radius: 0;
+    transition: 2s;
+}
+
+.rounding:hover{
+    transition-property: border-radius, background-color;
+    transition-duration: 2s, 6s;
+    transition-timing-function: ease-in, linear;
+    border-radius: 50%;
+    background-color: red;
+}
+
+.doNothing{
+    background-color: lightblue;
+    opacity: 0.5;
+    outline: 2 solid white;
+    transition: opacity 100ms linear;
+}
+
+.doNothing:hover{
+    transition-property: opacity;
+    text-decoration: 100ms;
+    /* transition-timing-function: step-end; */
+    opacity: 1;
+}
+
+.doNothing:active{
+    transition-property: outline;
+    transition-duration: 100ms;
+    transition-timing-function: step-end;
+    outline: 12px solid hotpink;
+}
+
+/* Animations alter an element for a given number of iterations */
+
+.animation{
+    background-color: #cccc;
+    border: 2px solid #bbbb;
+    border-radius: 3%;
+    width: 400px;
+    height: 400px;
+    margin-top: 2rem;
+}
+
+.animationElement{
+    width: 10%;
+    height: 10%;
+    background-color: cadetblue;
+    animation-name: movingColourBlock;
+    animation-duration: 5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    position: relative;
+}
+
+@keyframes movingColourBlock{
+ /* moveRight is the animation-name given in animationElement  */
+ /* https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes */
+
+ /* look at what Sam did https://codepen.io/slouloudis/pen/wvQoRGN */
+
+ /* https://www.sliderrevolution.com/resources/css-animated-background/ */
+
+ /* https://lottiefiles.com/ */
+    0%{
+        left: 0;
+        top: 0;
+        background-color: purple;
+    }
+    25%{
+        left: 90%;
+        top: 90%;
+        background-color: tomato;
+    }
+    50%{
+        left: 90%;
+        top: 0;
+        background-color: yellow;
+
+    }
+    75%{
+        left: 0;
+        top: 90%;
+        background-color: green;
+
+    }
+    100%{
+        left: 0;
+        top: 0;
+        background-color: purple;
+    }
+}
